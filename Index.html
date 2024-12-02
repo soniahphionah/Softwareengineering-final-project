@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Login - Gikomba Juakali</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!--header-->
+    <header>
+        <div class="container">
+            <img src="C:\Users\User\OneDrive\Desktop\Portfolio website\images\profile-image.png" alt="profile-image" class="profile-image">
+        <h1> GIKOMBA JUAKALI ONLINE PLATFORM </h1>
+        <p>Gikomba Juakali Online Platform is a site where items sold at Gikomba market,Nairobi, are advertised and one can order an item that they want and it will be delivered to them.Orders can be delivered to any area around Nairobi. </p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#artisans">Artisans</a></li>
+                <li><a href="#clothes section">Clothes section</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                  </ul>
+            <h2>Login</h2>
+            <form action="/login"method="POST">
+                <label for="username">username:</label>
+                <input type="text" id="username"name="username"required><br>
+                <label for="password">Password:</label>
+                <input type="password"id="password"name="password"required><br>
+                <button type="submit">Login</button>
+            </form>
+            <h3>Products</h3>
+            <ul>
+                {% for product in products %}
+                <li>
+                    {{ product.name }} - {{ product.price }}
+                    <form action="/order" method="POST" style="display:inline;">
+                        <input type="hidden" name="product" value="{{ product.name }}">
+                        <button type="submit">Order</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        </body>
+        </html>
